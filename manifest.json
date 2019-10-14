@@ -1,0 +1,12 @@
+  {
+    "name": "SWDestinyDB Search Buttons",
+    "version": "1.0.0",
+    "description": "Add search buttons from deck building interface to the main /find search page of https://swdestinydb.com/",
+    "permissions": ["activeTab", "declarativeContent"],
+    "content_scripts" : [{
+      "run_at": "document_idle",
+      "matches": ["https://swdestinydb.com/find*"],
+      "js": ["content.js"]
+    }],
+    "manifest_version": 2
+  }
