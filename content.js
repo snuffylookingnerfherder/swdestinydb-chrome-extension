@@ -157,7 +157,7 @@ function buildSearchQuery(event) {
 
 function createSearchHtml() {
 	var html = `<div class="row">
-    <div class="col-sm-6" style="margin-bottom:10px">
+    <div class="col-sm-6" style="margin-bottom:10px; max-height: 30px;">
         <div class="btn-group btn-group-justified" data-filter="affiliation_code" data-toggle="buttons">
         	<label class="btn btn-default btn-sm" data-code="neutral" title="Neutral">
                 <input type="checkbox" name="neutral">
