@@ -8,6 +8,7 @@ var codeLookup = {
 	'text_code': 'x'
 };
 
+var subtypes = [ "ability", "advisor", "apprentice", "artillery", "bounty", "bounty-hunter", "curse", "death-star", "droid", "engineer", "equipment", "ewok", "form", "guard", "gungan", "injury", "inquisitor", "intel", "jawa", "jedi", "leader", "location", "mission", "mod", "move", "nightbrother", "pilot", "podracer", "scavenger", "scoundrel", "shapeshifter", "sith", "spectre", "spell", "title", "trap", "trooper", "vehicle", "weapon", "witch", "wookiee"];
 class Query {
   constructor(queryString) {
 	var fields = queryString.split(' ');
@@ -121,6 +122,11 @@ if (search) {
 	createSearchHtml();
 	search.insertBefore(searchButtons, search.childNodes[0]);
 	search.onsubmit = buildSearchQuery;
+
+	$('#subtype_text').autocomplete({
+      source: subtypes
+    });
+    $('label').tooltip();
 }
 
 function buildSearchQuery(event) {
@@ -261,7 +267,7 @@ function createSearchHtml() {
     </div>
     <div class="col-sm-3" style="margin-bottom:10px" data-filter="subtype_code">
         <div data-code="subtype">
-            <input class="form-control" name="subtype" type="text" size="30" name="q" placeholder="Subtype" value="" title="Subtype" title="">
+            <input id="subtype_text" class="form-control" name="subtype" type="text" size="30" name="q" placeholder="Subtype" value="" title="Subtype" title="">
         </div>
     </div>
     <div class="col-sm-3" style="margin-bottom:10px" data-filter="text_code">
