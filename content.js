@@ -9,6 +9,7 @@ var codeLookup = {
 };
 
 var subtypes = [ "ability", "advisor", "apprentice", "artillery", "bounty", "bounty-hunter", "curse", "death-star", "droid", "engineer", "equipment", "ewok", "form", "guard", "gungan", "injury", "inquisitor", "intel", "jawa", "jedi", "leader", "location", "mission", "mod", "move", "nightbrother", "pilot", "podracer", "scavenger", "scoundrel", "shapeshifter", "sith", "spectre", "spell", "title", "trap", "trooper", "vehicle", "weapon", "witch", "wookiee"];
+
 class Query {
   constructor(queryString) {
 	var fields = queryString.split(' ');
@@ -156,128 +157,128 @@ function buildSearchQuery(event) {
 }
 
 function createSearchHtml() {
-	var html = `<div class="row">
-    <div class="col-sm-6" style="margin-bottom:10px; max-height: 30px;">
-        <div class="btn-group btn-group-justified" data-filter="affiliation_code" data-toggle="buttons">
-        	<label class="btn btn-default btn-sm" data-code="neutral" title="Neutral">
-                <input type="checkbox" name="neutral">
-                <strong>Neutral</strong>
-            </label>
-            <label class="btn btn-default btn-sm" data-code="hero" title="Hero">
-                <input type="checkbox" name="hero">
-                <strong>Hero</strong>
-            </label>
-            <label class="btn btn-default btn-sm" data-code="villain" title="Villain">
-                <input type="checkbox" name="villain">
-                <strong>Villain</strong>
-            </label>
-        </div>
-    </div>
-    <div class="col-sm-6" style="margin-bottom:10px">
-        <div class="btn-group btn-group-justified" data-filter="faction_code" data-toggle="buttons"><label
-                class="btn btn-default btn-sm fg-gray" data-code="gray" title="General">
-                <input type="checkbox" name="gray">
-                <span class="fa fa-square"></span>
-            </label>
-            <label class="btn btn-default btn-sm fg-blue" data-code="blue" title="Force">
-                <input type="checkbox" name="blue">
-                <span class="fa fa-square"></span>
-            </label>
-            <label class="btn btn-default btn-sm fg-red" data-code="red" title="Command">
-                <input type="checkbox" name="red">
-                <span class="fa fa-square"></span>
-            </label>
-            <label class="btn btn-default btn-sm fg-yellow" data-code="yellow" title="Rogue">
-                <input type="checkbox" name="yellow">
-                <span class="fa fa-square"></span>
-            </label>
-        </div>
-    </div>
-    <div class="col-sm-6" style="margin-bottom:10px">
-        <div class="btn-group btn-group-justified" data-filter="rarity_code" data-toggle="buttons">
-        	<label class="btn btn-default btn-sm fg-rarity-S" data-code="S" title="Starter">
-                <input type="checkbox" name="S">
-                <span class="icon-collectors"></span>
-            </label>
-            <label class="btn btn-default btn-sm fg-rarity-C" data-code="C" title="Common">
-                <input type="checkbox" name="C">
-                <span class="icon-collectors"></span>
-            </label>
-            <label class="btn btn-default btn-sm fg-rarity-U" data-code="U" title="Uncommon">
-                <input type="checkbox" name="U">
-                <span class="icon-collectors"></span>
-            </label>
-            <label class="btn btn-default btn-sm fg-rarity-R" data-code="R" title="Rare">
-                <input type="checkbox" name="R">
-                <span class="icon-collectors"></span>
-            </label>
-            <label class="btn btn-default btn-sm fg-rarity-L" data-code="L" title="Legendary">
-                <input type="checkbox" name="L">
-                <span class="icon-collectors"></span>
-            </label>
-        </div>
-    </div>
-    <div class="col-sm-6" style="margin-bottom:10px">
-        <div class="btn-group btn-group-justified" data-filter="type_code" data-toggle="buttons">
-        	<label class="btn btn-default btn-sm" data-code="battlefield" title="Battlefield">
-                <input type="checkbox" name="battlefield">
-                <span class="icon-battlefield"></span>
-            </label>
-            <label class="btn btn-default btn-sm" data-code="plot" title="Plot">
-                <input type="checkbox" name="plot">
-                <span class="icon-plot"></span>
-            </label>
-            <label class="btn btn-default btn-sm" data-code="character" title="Character">
-                <input type="checkbox" name="character">
-                <span class="icon-character"></span>
-            </label>
-            <label class="btn btn-default btn-sm" data-code="upgrade" title="Upgrade">
-                <input type="checkbox" name="upgrade">
-                <span class="icon-upgrade""></span>
-            </label>
-            <label class="btn btn-default btn-sm" data-code="downgrade" title="Downgrade">
-                <input type="checkbox" name="downgrade">
-                <span class="icon-downgrade"></span>
-            </label>
-            <label class="btn btn-default btn-sm" data-code="support" title="Support">
-                <input type="checkbox" name="support">
-                <span class="icon-support"></span>
-            </label>
-            <label class="btn btn-default btn-sm" data-code="event" title="Event">
-                <input type="checkbox" name="event">
-                <span class="icon-event"></span>
-            </label>
-        </div>
-    </div>
-    <div class="col-sm-6" style="margin-bottom:10px">
-        <div class="btn-group btn-group-justified" data-filter="set_code" data-toggle="buttons">
-            <label class="btn btn-default btn-sm" data-code="tpg|leg|wotf|riv|atg|conv|soh|aon" title="Standard">
-                <input type="radio" name="set_select">
-                <strong>Standard</strong>
-            </label>
-            <label class="btn btn-default btn-sm" data-code="conv|soh|aon" title="Trilogy">
-                <input type="radio" name="set_select">
-                <strong>Trilogy</strong>
-            </label>
-            <label class="btn btn-default btn-sm" data-code="" title="Infinite">
-                <input type="radio" name="set_select">
-                <strong>Infinite</strong>
-            </label>
-        </div>
-    </div>
-    <div class="col-sm-3" style="margin-bottom:10px" data-filter="subtype_code">
-        <div data-code="subtype">
-            <input id="subtype_text" class="form-control" name="subtype" type="text" size="30" name="q" placeholder="Subtype" value="" title="Subtype" title="">
-        </div>
-    </div>
-    <div class="col-sm-3" style="margin-bottom:10px" data-filter="text_code">
-        <div data-code="text">
-            <input class="form-control" name="text" type="text" size="30" name="q" placeholder="Card Text" value="" title="Card Text" title="">
-        </div>
-    </div>
-</div>`;
+	var html = '<div class="row"> \
+    <div class="col-sm-6" style="margin-bottom:10px; max-height: 30px;"> \
+        <div class="btn-group btn-group-justified" data-filter="affiliation_code" data-toggle="buttons"> \
+        	<label class="btn btn-default btn-sm" data-code="neutral" title="Neutral"> \
+                <input type="checkbox" name="neutral"> \
+                <strong>Neutral</strong> \
+            </label> \
+            <label class="btn btn-default btn-sm" data-code="hero" title="Hero"> \
+                <input type="checkbox" name="hero"> \
+                <strong>Hero</strong> \
+            </label> \
+            <label class="btn btn-default btn-sm" data-code="villain" title="Villain"> \
+                <input type="checkbox" name="villain"> \
+                <strong>Villain</strong> \
+            </label> \
+        </div> \
+    </div> \
+    <div class="col-sm-6" style="margin-bottom:10px"> \
+        <div class="btn-group btn-group-justified" data-filter="faction_code" data-toggle="buttons"><label \
+                class="btn btn-default btn-sm fg-gray" data-code="gray" title="General"> \
+                <input type="checkbox" name="gray"> \
+                <span class="fa fa-square"></span> \
+            </label> \
+            <label class="btn btn-default btn-sm fg-blue" data-code="blue" title="Force"> \
+                <input type="checkbox" name="blue"> \
+                <span class="fa fa-square"></span> \
+            </label> \
+            <label class="btn btn-default btn-sm fg-red" data-code="red" title="Command"> \
+                <input type="checkbox" name="red"> \
+                <span class="fa fa-square"></span> \
+            </label> \
+            <label class="btn btn-default btn-sm fg-yellow" data-code="yellow" title="Rogue"> \
+                <input type="checkbox" name="yellow"> \
+                <span class="fa fa-square"></span> \
+            </label> \
+        </div> \
+    </div> \
+    <div class="col-sm-6" style="margin-bottom:10px"> \
+        <div class="btn-group btn-group-justified" data-filter="rarity_code" data-toggle="buttons"> \
+        	<label class="btn btn-default btn-sm fg-rarity-S" data-code="S" title="Starter"> \
+                <input type="checkbox" name="S"> \
+                <span class="icon-collectors"></span> \
+            </label> \
+            <label class="btn btn-default btn-sm fg-rarity-C" data-code="C" title="Common"> \
+                <input type="checkbox" name="C"> \
+                <span class="icon-collectors"></span> \
+            </label> \
+            <label class="btn btn-default btn-sm fg-rarity-U" data-code="U" title="Uncommon"> \
+                <input type="checkbox" name="U"> \
+                <span class="icon-collectors"></span> \
+            </label> \
+            <label class="btn btn-default btn-sm fg-rarity-R" data-code="R" title="Rare"> \
+                <input type="checkbox" name="R"> \
+                <span class="icon-collectors"></span> \
+            </label> \
+            <label class="btn btn-default btn-sm fg-rarity-L" data-code="L" title="Legendary"> \
+                <input type="checkbox" name="L"> \
+                <span class="icon-collectors"></span> \
+            </label> \
+        </div> \
+    </div> \
+    <div class="col-sm-6" style="margin-bottom:10px"> \
+        <div class="btn-group btn-group-justified" data-filter="type_code" data-toggle="buttons"> \
+        	<label class="btn btn-default btn-sm" data-code="battlefield" title="Battlefield"> \
+                <input type="checkbox" name="battlefield"> \
+                <span class="icon-battlefield"></span> \
+            </label> \
+            <label class="btn btn-default btn-sm" data-code="plot" title="Plot"> \
+                <input type="checkbox" name="plot"> \
+                <span class="icon-plot"></span> \
+            </label> \
+            <label class="btn btn-default btn-sm" data-code="character" title="Character"> \
+                <input type="checkbox" name="character"> \
+                <span class="icon-character"></span> \
+            </label> \
+            <label class="btn btn-default btn-sm" data-code="upgrade" title="Upgrade"> \
+                <input type="checkbox" name="upgrade"> \
+                <span class="icon-upgrade""></span> \
+            </label> \
+            <label class="btn btn-default btn-sm" data-code="downgrade" title="Downgrade"> \
+                <input type="checkbox" name="downgrade"> \
+                <span class="icon-downgrade"></span> \
+            </label> \
+            <label class="btn btn-default btn-sm" data-code="support" title="Support"> \
+                <input type="checkbox" name="support"> \
+                <span class="icon-support"></span> \
+            </label> \
+            <label class="btn btn-default btn-sm" data-code="event" title="Event"> \
+                <input type="checkbox" name="event"> \
+                <span class="icon-event"></span> \
+            </label> \
+        </div> \
+    </div> \
+    <div class="col-sm-6" style="margin-bottom:10px"> \
+        <div class="btn-group btn-group-justified" data-filter="set_code" data-toggle="buttons"> \
+            <label class="btn btn-default btn-sm" data-code="tpg|leg|wotf|riv|atg|conv|soh|aon" title="Standard"> \
+                <input type="radio" name="set_select"> \
+                <strong>Standard</strong> \
+            </label> \
+            <label class="btn btn-default btn-sm" data-code="conv|soh|aon" title="Trilogy"> \
+                <input type="radio" name="set_select"> \
+                <strong>Trilogy</strong> \
+            </label> \
+            <label class="btn btn-default btn-sm" data-code="" title="Infinite"> \
+                <input type="radio" name="set_select"> \
+                <strong>Infinite</strong> \
+            </label> \
+        </div> \
+    </div> \
+    <div class="col-sm-3" style="margin-bottom:10px" data-filter="subtype_code"> \
+        <div data-code="subtype"> \
+            <input id="subtype_text" class="form-control" name="subtype" type="text" size="30" name="q" placeholder="Subtype" value="" title="Subtype" title=""> \
+        </div> \
+    </div> \
+    <div class="col-sm-3" style="margin-bottom:10px" data-filter="text_code"> \
+        <div data-code="text"> \
+            <input class="form-control" name="text" type="text" size="30" name="q" placeholder="Card Text" value="" title="Card Text" title=""> \
+        </div> \
+    </div> \
+	</div>';
 	
-	searchButtons.innerHTML = html;
+	searchButtons.appendChild($.parseHTML(html)[0]);
 	searchButtons.className = 'col-sm-12';
 	var inputs = searchButtons.getElementsByTagName('input');
 	for (var i = 0; i < inputs.length; i++) {
