@@ -8,7 +8,7 @@ var codeLookup = {
 	'text_code': 'x'
 };
 
-var subtypes = [ "ability", "advisor", "apprentice", "artillery", "bounty", "bounty-hunter", "curse", "death-star", "droid", "engineer", "equipment", "ewok", "form", "guard", "gungan", "injury", "inquisitor", "intel", "jawa", "jedi", "leader", "location", "mission", "mod", "move", "nightbrother", "pilot", "podracer", "scavenger", "scoundrel", "shapeshifter", "sith", "spectre", "spell", "title", "trap", "trooper", "vehicle", "weapon", "witch", "wookiee"];
+var subtypes = [ "ability", "advisor", "apprentice", "artillery", "bounty", "bounty-hunter", "curse", "death-star", "droid", "engineer", "equipment", "ewok", "form", "guard", "gungan", "injury", "inquisitor", "intel", "jawa", "jedi", "leader", "location", "mission", "mod", "move", "nightbrother", "pilot", "pirate", "podracer", "scavenger", "scoundrel", "shapeshifter", "sith", "spectre", "spell", "title", "trap", "trooper", "vehicle", "weapon", "witch", "wookiee"];
 
 class Query {
   constructor(queryString) {
