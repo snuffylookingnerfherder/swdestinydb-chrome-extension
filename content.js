@@ -252,7 +252,7 @@ function createSearchHtml() {
     </div> \
     <div class="col-sm-6" style="margin-bottom:10px"> \
         <div class="btn-group btn-group-justified" data-filter="set_code" data-toggle="buttons"> \
-            <label class="btn btn-default btn-sm" data-code="tpg|leg|wotf|riv|atg|conv|soh|aon" title="Standard"> \
+            <label class="btn btn-default btn-sm" data-code="tpg|leg|wotf|riv|atg|conv|soh|aon|cm" title="Standard"> \
                 <input type="radio" name="set_select"> \
                 <strong>Standard</strong> \
             </label> \
